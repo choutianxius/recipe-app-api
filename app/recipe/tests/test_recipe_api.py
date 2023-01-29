@@ -72,8 +72,7 @@ class PrivateRecipeApiTests(TestCase):
 
     def test_retrieve_list_limited_to_user(self):
         """
-        Test that the list of recipes is limited
-        To the current authenticated user.
+        Test the list of recipes is limited to the current user.
         """
         another_user = get_user_model().objects.create_user(
             "another@example.com",
@@ -88,4 +87,4 @@ class PrivateRecipeApiTests(TestCase):
         serializer = RecipeSerializer(recipes, many=True)
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-        self.assertEqual(res.data, serializer)
+        self.assertEqual(res.data, serializer.data)
