@@ -144,7 +144,7 @@ class PrivateRecipeApiTests(TestCase):
             link=original_link
         )
 
-        payload = {"title": "New Recipe Title",}
+        payload = {"title": "New Recipe Title", }
         url = detail_url(recipe.id)
         res = self.client.patch(url, payload)
 
@@ -190,7 +190,7 @@ class PrivateRecipeApiTests(TestCase):
             title="Sample Recipe Title"
         )
 
-        payload = {"title": "New Recipe Title",}
+        payload = {"title": "New Recipe Title", }
         url = detail_url(recipe.id)
         res = self.client.patch(url, payload)
         recipe.refresh_from_db()
